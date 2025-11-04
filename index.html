@@ -383,21 +383,6 @@
 
   <p>Kontakt: <a href="mailto:marynergy@gmail.com">marynergy@gmail.com</a></p>
 
-  <!-- Newsletter: Honeypot + aria-live status -->
-  <form id="newsletter-form" action="#" method="post" aria-label="Newsletter signup" class="newsletter" novalidate>
-    <label for="email" class="visually-hidden">E-Mail Adresse</label>
-    <input id="email" type="email" name="email" placeholder="Deine E-Mail" required aria-required="true" />
-    
-    <!-- Honeypot field (Bots füllen häufig alle Felder) -->
-    <label class="visually-hidden" for="website">Website</label>
-    <input id="website" name="website" autocomplete="off" class="visually-hidden" tabindex="-1" />
-    
-    <button type="submit">Senden</button>
-  </form>
-
-  <div id="newsletter-status" aria-live="polite" style="margin-top:.5rem;"></div>
-</footer>
-
   <script>
     /* ======================================================================
        Tab-Logik, Lazy-load backgrounds, Helligkeits-Messung, Accessibility
