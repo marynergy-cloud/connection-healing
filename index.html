@@ -119,7 +119,8 @@
     }
 
     /* smaller measure for readability */
-    .tab-inner p { max-width: 58ch; margin-left:auto; margin-right:auto; }
+    .tab-inner p {  max-width: none; margin: 0
+    }
 
     /* Backgrounds (use data-bg + lazy loader) - fallback colors provided */
     .bg-connect{ background-color:#f7fbf9; background-repeat:no-repeat; background-size:cover; }
@@ -142,30 +143,6 @@
     }
     ul{ margin: .5rem 0 1rem 1.2rem; }
     .fine-text{ display:block; margin-top:1.25rem; font-size:.92rem; color:#444; text-align:center; }
-
-    /* Footer form styling */
-    .newsletter{
-      margin-top:.6rem;
-      display:flex;
-      gap:.4rem;
-      justify-content:center;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    .newsletter input[type="email"]{
-      padding:.5rem;
-      border-radius:6px;
-      border:1px solid #ddd;
-      min-width:210px;
-    }
-    .newsletter button{
-      padding:.5rem .9rem;
-      border-radius:6px;
-      border:0;
-      background:var(--accent);
-      color:#fff;
-      cursor:pointer;
-    }
 
     /* small focus improvements for interactive elements */
     a:focus, button:focus, input:focus { outline: 3px solid rgba(0,123,94,0.16); outline-offset:3px; }
@@ -302,9 +279,6 @@
           <body>
 
 <main>
-
-
- <br>
 <span class="clickable" data-info="The unity of body, mind, and heart is nurtured through mindfulness, spiritual practice, and physical training, while connecting to the greater whole — whether experienced as Dao, Zen, Chi, or Nature." data-img="">🌱 Core Teaching</span>
 <br>
 <span class="clickable" data-info="All is energy — visible and invisible, material and immaterial — and everything is interconnected. Healing arises from the courage to face personal and universal truth, aligning body, mind, and heart, and opening a space beyond the ego where consciousness is pure." data-img="">🌱 Energy &amp; Truth</span><br>
@@ -544,6 +518,12 @@ document.addEventListener('DOMContentLoaded', () => {
   @media (max-width: 520px) {
     .panel { width: 100%; }
   }
+  .bg-education {
+  background-image: url('healing-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
   /* optional: verhindert seitlichen "Shift" wenn body fixed gesetzt wird */
   html, body { height: 100%; margin:0; }
@@ -860,10 +840,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const initialTab = tabs.find(t => t.getAttribute('aria-selected') === 'true') || tabs[0];
       if(initialTab) activateTab(initialTab);
 
-      /* ==========================
-         Lazy-load Backgrounds + Brightness check
-         ========================== */
-      // Keep track of whether we've loaded a panel
       const loaded = new WeakSet();
 
       // IntersectionObserver to lazy-load backgrounds when panels approach viewport
@@ -945,11 +921,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(p.classList.contains('active')) loadBackgroundFor(p);
       });
 
-      /* ==========================
-         Newsletter form handling (client-side)
-         - Honeypot check (field 'website')
-         - aria-live feedback
-         ========================== */
       const form = document.getElementById('newsletter-form');
       form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -973,6 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
         status.textContent = 'Danke — wir haben deine E-Mail erhalten.';
         status.style.color = '';
         form.reset();
+
       });
 
     })();
