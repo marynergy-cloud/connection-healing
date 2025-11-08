@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Marynergy — Connect · Grow · Create</title>
-  <meta name="description" content="Marynergy — Connection, growth, and culture. Practices, teachings, and inspiration for body, mind, and heart." />
+  <meta name="description" content="Marynergy — Connection, Growth, and Healing. Inspiration for Body, Mind, and Heart." />
   <style>
     /* --------------------
        Grund & Accessibility
@@ -192,34 +192,7 @@
       .tab-inner { color: var(--text); }
       blockquote { background: rgba(10,10,10,0.45); border-left-color: var(--accent); color: #ddd; }
     }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Marynergy</h1>
-    <p>Connect · Grow · Create</p>
-    <nav aria-label="Haupttabs" role="tablist">
-      <!-- type="button" wichtig, um versehentliche Form-Submits zu vermeiden -->
-      <button type="button" id="tab-btn-connect" role="tab" aria-controls="connect" aria-selected="true">Connection &amp; Healing</button>
-      <button type="button" id="tab-btn-education" role="tab" aria-controls="education" aria-selected="false">Education &amp; Growth</button>
-  
-    </nav>
-  </header>
 
-  <main>
-    <div class="tabs" id="tabs">
-      <!-- Für Lazy-load: data-bg setzt das Bild, wird per JS gesetzt als background-image -->
-      <!-- Tab 1: Connection & Healing -->
-      <section id="connect" class="tab-content bg-connect active" role="tabpanel" aria-labelledby="tab-btn-connect" aria-hidden="false" data-bg="healing-bg.jpg">
-        <div class="tab-inner">
-          <p class="subtle-text">愛 LOVE</p>
-          <h2>Connection and Healing</h2>
-          <blockquote>
-            "In the world of 'Nothing,' there is nothing evil, only the good exists. Knowledge and talent encounter limits in the human world, even in martial arts. Therefore, the mind should belong to 'Nothing.' This means: unlimited being." – Miyamoto Musashi, <em>The Book of Five Rings</em>
-          </blockquote>
-          <br>
-                <!-- Styles -->
-<style>
   :root{
     --link-accent: #1f6feb;
     --link-accent-weak: rgba(31,111,235,0.14);
@@ -300,9 +273,33 @@
 
   /* optional: verhindert seitlichen "Shift" wenn body fixed gesetzt wird */
   html, body { height: 100%; margin:0; }
-</style>
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Marynergy</h1>
+    <p>Connect · Grow · Create</p>
+    <nav aria-label="Haupttabs" role="tablist">
+      <!-- type="button" wichtig, um versehentliche Form-Submits zu vermeiden -->
+      <button type="button" id="tab-btn-connect" role="tab" aria-controls="connect" aria-selected="true">Connection &amp; Healing</button>
+      <button type="button" id="tab-btn-education" role="tab" aria-controls="education" aria-selected="false">Education &amp; Growth</button>
+  
+    </nav>
+  </header>
+
+  <main>
+    <div class="tabs" id="tabs">
+      <!-- Für Lazy-load: data-bg setzt das Bild, wird per JS gesetzt als background-image -->
+      <!-- Tab 1: Connection & Healing -->
+      <section id="connect" class="tab-content bg-connect active" role="tabpanel" aria-labelledby="tab-btn-connect" aria-hidden="false" data-bg="healing-bg.jpg">
+        <div class="tab-inner">
+          <p class="subtle-text">愛 LOVE</p>
+          <h2>Connection and Healing</h2>
+          <blockquote>
+            "In the world of 'Nothing,' there is nothing evil, only the good exists. Knowledge and talent encounter limits in the human world, even in martial arts. Therefore, the mind should belong to 'Nothing.' This means: unlimited being." – Miyamoto Musashi, <em>The Book of Five Rings</em>
+          </blockquote>
+          <br>
+          <body>
 
 <main>
 
@@ -316,16 +313,12 @@
 <span class="clickable" data-info="The highest form of being is the unity of action, substance, and heaven & earth. Its purest expression is simply breathing and being in the present—whatever you do, feel, don’t think. Action includes breathing, thinking, doing, and so on, whether active or passive, conscious or unconscious. Substance is what the body and mind take in: air, water, food, thoughts, and information. Heaven & earth encompass places in the physical world, people, relationships, and the digital world, spanning past, present, and future." data-img="">🌱 Action · Substance · Heaven &amp; Earth</span>
 <br>
 <br>
-
-
-  </p>
 <br>
           <p class="fine-text"><em>The analog world is my <strong>Heaven &amp; Earth</strong> — the foundation of my philosophy: Action · Substance · Heaven &amp; Earth. I engage with the digital world consciously—to share, to be inspired—yet I value the physical world above all as a human being.</em></p>
         </div>
       </section>
-  
 
-</div>
+         </div>
 </main>
 <!-- Off-Canvas Panel -->
 <div id="panelOverlay" class="panel-overlay" aria-hidden="true">
@@ -335,18 +328,7 @@
     <h2 id="panelTitle"></h2>
     <div id="panelContent" class="content" tabindex="0"></div>
   </aside>
-</div>
-
-<!-- Off-Canvas Panel -->
-<div id="panelOverlay" class="panel-overlay" aria-hidden="true">
-  <aside id="panel" class="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
-    <button id="panelClose" class="close" aria-label="Schließen">&times;</button>
-    <div id="panelHero" class="hero" aria-hidden="true"></div>
-    <h2 id="panelTitle"></h2>
-    <div id="panelContent" class="content"></div>
-  </aside>
-</div>
-
+</div> 
 <!-- Script -->
 <script>
 /*
@@ -475,17 +457,14 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closePanel(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
 });
-</script>
-          
-
-      <!-- Tab 2: Education & Growth -->
-      <section id="education" class="tab-content bg-education" role="tabpanel" aria-labelledby="tab-btn-education" aria-hidden="true" data-bg="healing-bg.png">
+</script>  
+ <!-- Tab 2: Education & Growth -->
+      <section id="education" class="tab-content bg-education" role="tabpanel" aria-labelledby="tab-btn-education" aria-hidden="true" data-bg="healing-bg.jpg">
         <div class="tab-inner">
           <h2>Education and Growth</h2>
           <blockquote>
             "You may think you are living in the present, but actually you are living in the past when thought is in operation… Unless this is told, repeated, shown to you, you can talk endlessly about books. This comes first. Then you can read the books." – J. Krishnamurti
           </blockquote>
-          <br>
            <!-- Styles -->
 <style>
   :root{
@@ -574,25 +553,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <main>
   <div class="section">
-  <h3>🌸 Inspiring Books & Personalities</h3>
-
-  <p><strong>Books:</strong>
-<span class="clickable" data-info="Miyamoto Musashi was a legendary samurai, strategist, and philosopher who won more than 60 duels without defeat. As founder of Niten Ichi-Ryū, he perfected the two-sword technique and an unorthodox approach to combat. In The Book of Five Rings, Musashi distilled his experience into a philosophy of strategy that extends beyond battle — emphasizing clarity of mind, adaptability, and mastery through discipline. Few works have shaped my thinking as deeply." data-img="">The Book of Five Rings</span>,
-<span class="clickable" data-info="Marcus Aurelius, Roman emperor and philosopher, articulated in his Meditations the core principles of Stoicism — self-reflection, ethical integrity, and responsibility for one’s actions. His writings emphasize inner calm, strength of character, and the pursuit of wisdom amidst life’s challenges. It is a book to be read time and again." data-img="">Meditations</span>,
-<span class="clickable" data-info="Think and Grow Rich – Napoleon Hill: Success and personal development guide; conveys principles such as goal setting, self-discipline, positive thinking, and consistent action that promote wealth and personal fulfillment. This book has influenced not only me but also many well-known figures like Bob Proctor and Jim Rohn. The full impact of the principles in this book is realized by very few." data-img="">Think and Grow Rich</span>,
-<span class="clickable" data-info="The Art of War – Sun Tzu: Classic work on strategy, tactics, and leadership; it teaches how to analyze challenges wisely, understand opponents, and act with clarity and flexibility – applicable to war, business, and life. The idea for the term 'Heaven and Earth' in my philosophy originates from this book." data-img="">The Art of War</span>,
-<span class="clickable" data-info="The Prince by Niccolò Machiavelli is a classic work of political philosophy that presents pragmatic strategies for power, leadership, and influence. It emphasizes that political goals must often be pursued with wisdom, flexibility, and realism, showing that effectiveness can take precedence over ideals without undermining long-term stability. The book has influenced many, including artists like Tupac, who explored such works to better understand power and society." data-img="">The Prince</span>,
-<span class="clickable" data-info="The Richest Man in Babylon by George S. Clason is a timeless guide to financial wisdom, conveying enduring principles on saving, investing, and building wealth through engaging stories from ancient Babylon. Beyond practical strategies, it demonstrates how discipline, careful decision-making, and long-term planning can transform one’s financial life." data-img="">The Richest Man in Babylon</span>,
-<span class="clickable" data-info="1984 – George Orwell: A dystopian novel about surveillance, totalitarianism, and propaganda; it depicts a society where freedom, truth, and individuality are suppressed, and encourages reflection on power structures, manipulation, and the importance of freedom and critical thinking – themes more relevant today than ever." data-img="">1984</span>,
-<span class="clickable" data-info="The Bible: A timeless classic, central to Christianity and influential for culture, ethics, and morality. It imparts wisdom, spiritual guidance, and values such as compassion, justice, and charity – values that continue to shape people worldwide. Like biographies and autobiographies, it provides both role models to emulate and warnings to learn from." data-img="">The Bible</span>,
-<span class="clickable" data-info="Eckhart Tolle, in A New Earth, describes how people can expand their consciousness to lead a more fulfilling and peaceful life. He explains that the ego is the source of suffering, conflict, and dissatisfaction, and shows ways to break free from ego-centered patterns of thought. He also explains how a conscious, mindful way of living fosters inner peace and contributes to a positive transformation of the world." data-img="">A New Earth</span>
-
-
-  </p>
-
-<p><strong>Personalities:</strong>
-    <!-- Example: fill in data-info; optionally add data-img / data-bg -->
-    <span class="clickable"
+    <h3>🌸 Inspiring Books & Personalities</h3>
+    <p class="fine-text">  <p><strong>Books:</strong><em><span style= font-size: 12px; class="clickable" data-info="Miyamoto Musashi was a legendary samurai, strategist, and philosopher who won more than 60 duels without defeat. As founder of Niten Ichi-Ryū, he perfected the two-sword technique and an unorthodox approach to combat. In The Book of Five Rings, Musashi distilled his experience into a philosophy of strategy that extends beyond battle — emphasizing clarity of mind, adaptability, and mastery through discipline. Few works have shaped my thinking as deeply." data-img="">The Book of Five Rings</span>, <span class="clickable" data-info="Marcus Aurelius, Roman emperor and philosopher, articulated in his Meditations the core principles of Stoicism — self-reflection, ethical integrity, and responsibility for one’s actions. His writings emphasize inner calm, strength of character, and the pursuit of wisdom amidst life’s challenges. It is a book to be read time and again." data-img="">Meditations</span>, <span class="clickable" data-info="Think and Grow Rich – Napoleon Hill: Success and personal development guide; conveys principles such as goal setting, self-discipline, positive thinking, and consistent action that promote wealth and personal fulfillment. This book has influenced not only me but also many well-known figures like Bob Proctor and Jim Rohn. The full impact of the principles in this book is realized by very few." data-img="">Think and Grow Rich</span>, <span class="clickable" data-info="The Art of War – Sun Tzu: Classic work on strategy, tactics, and leadership; it teaches how to analyze challenges wisely, understand opponents, and act with clarity and flexibility – applicable to war, business, and life. The idea for the term 'Heaven and Earth' in my philosophy originates from this book." data-img="">The Art of War</span>, <span class="clickable" data-info="The Prince by Niccolò Machiavelli is a classic work of political philosophy that presents pragmatic strategies for power, leadership, and influence. It emphasizes that political goals must often be pursued with wisdom, flexibility, and realism, showing that effectiveness can take precedence over ideals without undermining long-term stability. The book has influenced many, including artists like Tupac, who explored such works to better understand power and society." data-img="">The Prince</span>, <span class="clickable" data-info="The Richest Man in Babylon by George S. Clason is a timeless guide to financial wisdom, conveying enduring principles on saving, investing, and building wealth through engaging stories from ancient Babylon. Beyond practical strategies, it demonstrates how discipline, careful decision-making, and long-term planning can transform one’s financial life." data-img="">The Richest Man in Babylon</span>, <span class="clickable" data-info="1984 – George Orwell: A dystopian novel about surveillance, totalitarianism, and propaganda; it depicts a society where freedom, truth, and individuality are suppressed, and encourages reflection on power structures, manipulation, and the importance of freedom and critical thinking – themes more relevant today than ever." data-img="">1984</span>, <span class="clickable" data-info="The Bible: A timeless classic, central to Christianity and influential for culture, ethics, and morality. It imparts wisdom, spiritual guidance, and values such as compassion, justice, and charity – values that continue to shape people worldwide. Like biographies and autobiographies, it provides both role models to emulate and warnings to learn from." data-img="">The Bible</span>, <span class="clickable" data-info="Eckhart Tolle, in A New Earth, describes how people can expand their consciousness to lead a more fulfilling and peaceful life. He explains that the ego is the source of suffering, conflict, and dissatisfaction, and shows ways to break free from ego-centered patterns of thought. He also explains how a conscious, mindful way of living fosters inner peace and contributes to a positive transformation of the world." data-img="">A New Earth</span>
+      <br>
+      <p><strong>Personalities:</strong>
+        <span class="clickable"
           data-info="The story of Siddhartha Gautama fascinated me already in my youth, as I realized that Buddhism offers a path to mastering one's own life. What impressed me most was this idea: when crossing a river, one leaves the raft behind – Buddhism should be understood in the same way. The teaching is a tool, not a possession. It encourages viewing Buddhism not as a burden or rigid dogma, but as a help that one can ultimately let go of."data-img="">Buddha</span>,
     <span class="clickable" data-info="As a child raised in the Catholic faith, I came into contact with Jesus at an early age. He represents compassion, forgiveness, and love for one’s neighbor. His teachings inspire me to treat others with mindfulness and kindness, and they have shaped my inner attitude. The energy of love that flowed through him can still be felt today and for all time." data-img="">Jesus</span>,
   <span class="clickable" data-info="For me, Confucius represents ethics, wisdom, and the importance of education and self-reflection. When I was young, during a life-threatening situation, one of his aphorisms gave me support and helped me maintain calm and clarity." data-img="">Confucius</span>,
@@ -617,8 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
    <span class="clickable" data-info="Mahatma Gandhi: Indian philosopher, freedom fighter, and advocate of nonviolent resistance; he was inspired, among others, by Tolstoy’s work The Kingdom of God Is Within You, adopting the principles of nonviolence, moral responsibility, and simple living, which he applied in the struggle for India’s independence and social justice." data-img="">Gandhi</span>,
 <span class="clickable" data-info="Albert Einstein: Visionary physicist and mathematician whose work revolutionized our understanding of space, time, and energy; he embodies curiosity, creativity, and the ability to grasp the laws of the universe with wonder and critical reflection, always coupled with humanistic responsibility. 'The intuitive mind is a sacred gift, and the rational mind is a faithful servant. We have created a society that honors the servant and forgets the gift.'" data-img="">Einstein</span>,
 <span class="clickable" data-info="Alan Watts: Philosopher and interpreter of Eastern wisdom in the West, especially Zen Buddhism and Taoism; he emphasizes the interconnectedness of all life, the illusion of a separate self, and the importance of living in the present moment free from fear and rigid notions. 'A man who thinks all the time has nothing to think about except thoughts. He loses touch with reality and lives in a world of illusion.'" data-img="">Alan Watts</span>,
-<span class="clickable" data-info="Jim Rohn: One of my greatest mentors and pivotal for my personal growth; he stands for self-discipline, the power of habits, and goal-oriented action, showing that success and fulfillment arise from continuous learning, personal responsibility, and consistent action." data-img="">Jim Rohn</span>
-<br>
+<span class="clickable" data-info="Jim Rohn: One of my greatest mentors and pivotal for my personal growth; he stands for self-discipline, the power of habits, and goal-oriented action, showing that success and fulfillment arise from continuous learning, personal responsibility, and consistent action." data-img="">Jim Rohn</span></em></p>
 <br>
 <span class="clickable"
           data-info="Educate derives from the Latin word educo, meaning “to draw out,” “to develop from within.” Education unfolds our innate potential and lays the foundation for wealth, health, prosperity, and freedom. It nurtures values and virtues that sustain both personal growth and the well-being of the collective. Education is a lived presence that unites body, mind, and heart. It transforms learning into a holistic experience — one that goes beyond knowledge to nurture curiosity, inspiration, and sustainable personal and collective growth. "data-img="">🌱  Essence of Education
@@ -641,6 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <span class="clickable"
           data-info="Words enlighten &amp; move people. Speak with value, empathy, genuine interest. Read others, adjust tone, show understanding. Start with sincerity. "data-img="">🌱 Communication
 </span>   
+<br>
 <br>
 <br>
 <span class="clickable"
@@ -806,6 +771,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </section>
     </div>
   </main>
+
 
   <footer>
   <p>Gratitude 🙏</p>
@@ -1012,4 +978,3 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
   </script>
 </body>
-</html>
