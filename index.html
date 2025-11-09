@@ -245,7 +245,6 @@
           <br>
           <body>
 
-<main>
 <span class="clickable" data-info="The unity of body, mind, and heart is nurtured through mindfulness, spiritual practice, and physical training, while connecting to the greater whole — whether experienced as Dao, Zen, Chi, or Nature." data-img="">🌱 Core Teaching</span>
 <br>
 <span class="clickable" data-info="All is energy — visible and invisible, material and immaterial — and everything is interconnected. Healing arises from the courage to face personal and universal truth, aligning body, mind, and heart, and opening a space beyond the ego where consciousness is pure." data-img="">🌱 Energy &amp; Truth</span><br>
@@ -260,7 +259,7 @@
       </section>
 
          </div>
-</main>
+
 <!-- Off-Canvas Panel -->
 <div id="panelOverlay" class="panel-overlay" aria-hidden="true">
   <aside id="panel" class="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
@@ -270,135 +269,7 @@
     <div id="panelContent" class="content" tabindex="0"></div>
   </aside>
 </div> 
-<!-- Script -->
-<script>
-/*
-  Robustes Panel-Script:
-  - sperrt beim Öffnen den Hintergrund-Scroll (body fixed trick),
-  - zeigt data-info sofort oben im Panel,
-  - stellt beim Schließen Fokus & Scroll sauber wieder her.
-*/
-document.addEventListener('DOMContentLoaded', () => {
-  const overlay = document.getElementById('panelOverlay');
-  const panel = document.getElementById('panel');
-  const hero = document.getElementById('panelHero');
-  const titleEl = document.getElementById('panelTitle');
-  const contentEl = document.getElementById('panelContent');
-  const closeBtn = document.getElementById('panelClose');
 
-  if (!overlay || !panel || !titleEl || !contentEl || !closeBtn) {
-    console.warn('Panel-Elemente fehlen im DOM — Script deaktiviert.');
-    return;
-  }
-
-  let savedScrollY = 0;
-  let lastClicked = null;
-  let lastFocused = null;
-
-  function lockBackground(scrollY) {
-    // Body position fixed verhindert Scrollen und Browser-jumps
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.documentElement.style.scrollBehavior = 'auto'; // verhindern smooth scroll interference
-  }
-
-  function unlockBackground() {
-    const top = document.body.style.top;
-    // entfernen der styles
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.documentElement.style.scrollBehavior = '';
-
-    // top ist wie "-123px"
-    const scrollY = top ? -parseInt(top, 10) : 0;
-    window.scrollTo(0, scrollY || 0);
-  }
-
-  function openPanel(title, infoHTML, imgUrl) {
-    titleEl.textContent = title || 'Ohne Titel';
-    contentEl.innerHTML = infoHTML || 'Noch kein Text hinterlegt.';
-
-    if (imgUrl) {
-      hero.style.backgroundImage = `url("${imgUrl}")`;
-      hero.style.display = 'block';
-    } else {
-      hero.style.backgroundImage = '';
-      hero.style.display = 'none';
-    }
-
-    overlay.classList.add('open');
-    panel.classList.add('open');
-    overlay.setAttribute('aria-hidden', 'false');
-
-    // Panel-Inhalt oben positionieren
-    panel.scrollTop = 0;
-    contentEl.scrollTop = 0;
-
-    // Sperre Hintergrund-Scroll (verhindert Sprünge)
-    lockBackground(savedScrollY);
-
-    try { closeBtn.focus({ preventScroll: true }); } catch (err) { closeBtn.focus(); }
-  }
-
-  function closePanel() {
-    overlay.classList.remove('open');
-    panel.classList.remove('open');
-    overlay.setAttribute('aria-hidden', 'true');
-
-    // Nach Transition Hintergrund entsperren und Fokus/Scroll wiederherstellen
-    setTimeout(() => {
-      unlockBackground();
-
-      const target = lastClicked || lastFocused;
-      if (target) {
-        try { target.focus({ preventScroll: true }); } catch (err) { target.focus(); }
-      }
-
-      // cleanup
-      lastClicked = null;
-      lastFocused = null;
-      savedScrollY = 0;
-    }, 240); // etwas länger als CSS transition 0.22s
-  }
-
-  // klickbare Elemente: Rolle/Tabindex setzen und Handler
-  document.querySelectorAll('.clickable').forEach(el => {
-    if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
-    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
-
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      // speichern (wichtig VOR lockBackground)
-      savedScrollY = window.scrollY || window.pageYOffset;
-      lastClicked = el;
-      lastFocused = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
-
-      const title = el.textContent.trim();
-      const info = el.getAttribute('data-info') || '';
-      const img = el.getAttribute('data-img') || '';
-
-      openPanel(title, info, img);
-    });
-
-    el.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.code === 'Space') {
-        e.preventDefault();
-        el.click();
-      }
-    });
-  });
-
-  // Schließen-Mechanik
-  closeBtn.addEventListener('click', closePanel);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePanel(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
-});
-</script>  
  <!-- Tab 2: Education & Growth -->
       <section id="education" class="tab-content bg-education" role="tabpanel" aria-labelledby="tab-btn-education" aria-hidden="true" data-bg="healing-bg.jpg">
         <div class="tab-inner">
@@ -406,99 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <blockquote>
             "You may think you are living in the present, but actually you are living in the past when thought is in operation… Unless this is told, repeated, shown to you, you can talk endlessly about books. This comes first. Then you can read the books." – J. Krishnamurti
           </blockquote>
-           <!-- Styles -->
-<style>
-  :root{
-    --link-accent: #1f6feb;
-    --link-accent-weak: rgba(31,111,235,0.14);
-    --link-muted: #374151;
-  }
 
-  /* Basis: klickbare Inline-Spans */
-  .clickable {
-    color: var(--link-muted);
-    cursor: pointer;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding: 0 1px;
-    transition: color .14s ease, border-color .14s ease, box-shadow .14s;
-  }
-  .clickable:hover,
-  .clickable:active {
-    color: var(--link-accent);
-    border-bottom-color: var(--link-accent-weak);
-  }
-  .clickable:focus-visible {
-    outline: none;
-    border-radius: 3px;
-    box-shadow: 0 0 0 4px rgba(31,111,235,0.12);
-  }
-
-  /* Overlay / Off-canvas panel */
-  .panel-overlay {
-    position: fixed;
-    inset: 0;
-    display: none;            /* wird auf open -> flex gesetzt */
-    z-index: 2000;
-    justify-content: flex-end; /* Panel rechts */
-    align-items: flex-start;   /* Panel oben beginnen */
-    background: rgba(0,0,0,0.4);
-  }
-  .panel-overlay.open { display: flex; }
-
-  .panel {
-    width: 420px;
-    max-width: 95%;
-    height: 100vh;           /* volle Höhe des Viewports */
-    background: #fff;
-    overflow-y: auto;        /* Innen-Scroll für langen Text */
-    box-shadow: -8px 0 24px rgba(0,0,0,0.2);
-    transform: translateX(100%); /* von rechts hereinschieben */
-    transition: transform 0.22s ease;
-    position: relative;
-    padding: 20px;
-  }
-  .panel.open { transform: translateX(0); }
-
-  .panel .close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: transparent;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-  }
-  .panel .hero {
-    width: 100%;
-    height: 160px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    margin-bottom: 14px;
-    display: none;
-  }
-  .panel h2 { margin: 0 0 8px 0; font-size: 1.25rem; }
-  .panel .content { font-size: 0.95rem; line-height: 1.5; color: #222; white-space: pre-wrap; }
-
-  /* kleine Responsive-Anpassung */
-  @media (max-width: 520px) {
-    .panel { width: 100%; }
-  }
-  .bg-education {
-  background-image: url('healing-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-  /* optional: verhindert seitlichen "Shift" wenn body fixed gesetzt wird */
-  html, body { height: 100%; margin:0; }
-</style>
-</head>
-<body>
-
-<main>
   <div class="section">
     <h3>🌸 Inspiring Books & Personalities</h3>
     <p class="fine-text">  <p><strong>Books:</strong><em><span style= font-size: 12px; class="clickable" data-info="Miyamoto Musashi was a legendary samurai, strategist, and philosopher who won more than 60 duels without defeat. As founder of Niten Ichi-Ryū, he perfected the two-sword technique and an unorthodox approach to combat. In The Book of Five Rings, Musashi distilled his experience into a philosophy of strategy that extends beyond battle — emphasizing clarity of mind, adaptability, and mastery through discipline. Few works have shaped my thinking as deeply." data-img="">The Book of Five Rings</span>, <span class="clickable" data-info="Marcus Aurelius, Roman emperor and philosopher, articulated in his Meditations the core principles of Stoicism — self-reflection, ethical integrity, and responsibility for one’s actions. His writings emphasize inner calm, strength of character, and the pursuit of wisdom amidst life’s challenges. It is a book to be read time and again." data-img="">Meditations</span>, <span class="clickable" data-info="Think and Grow Rich – Napoleon Hill: Success and personal development guide; conveys principles such as goal setting, self-discipline, positive thinking, and consistent action that promote wealth and personal fulfillment. This book has influenced not only me but also many well-known figures like Bob Proctor and Jim Rohn. The full impact of the principles in this book is realized by very few." data-img="">Think and Grow Rich</span>, <span class="clickable" data-info="The Art of War – Sun Tzu: Classic work on strategy, tactics, and leadership; it teaches how to analyze challenges wisely, understand opponents, and act with clarity and flexibility – applicable to war, business, and life. The idea for the term 'Heaven and Earth' in my philosophy originates from this book." data-img="">The Art of War</span>, <span class="clickable" data-info="The Prince by Niccolò Machiavelli is a classic work of political philosophy that presents pragmatic strategies for power, leadership, and influence. It emphasizes that political goals must often be pursued with wisdom, flexibility, and realism, showing that effectiveness can take precedence over ideals without undermining long-term stability. The book has influenced many, including artists like Tupac, who explored such works to better understand power and society." data-img="">The Prince</span>, <span class="clickable" data-info="The Richest Man in Babylon by George S. Clason is a timeless guide to financial wisdom, conveying enduring principles on saving, investing, and building wealth through engaging stories from ancient Babylon. Beyond practical strategies, it demonstrates how discipline, careful decision-making, and long-term planning can transform one’s financial life." data-img="">The Richest Man in Babylon</span>, <span class="clickable" data-info="1984 – George Orwell: A dystopian novel about surveillance, totalitarianism, and propaganda; it depicts a society where freedom, truth, and individuality are suppressed, and encourages reflection on power structures, manipulation, and the importance of freedom and critical thinking – themes more relevant today than ever." data-img="">1984</span>, <span class="clickable" data-info="The Bible: A timeless classic, central to Christianity and influential for culture, ethics, and morality. It imparts wisdom, spiritual guidance, and values such as compassion, justice, and charity – values that continue to shape people worldwide. Like biographies and autobiographies, it provides both role models to emulate and warnings to learn from." data-img="">The Bible</span>, <span class="clickable" data-info="Eckhart Tolle, in A New Earth, describes how people can expand their consciousness to lead a more fulfilling and peaceful life. He explains that the ego is the source of suffering, conflict, and dissatisfaction, and shows ways to break free from ego-centered patterns of thought. He also explains how a conscious, mindful way of living fosters inner peace and contributes to a positive transformation of the world." data-img="">A New Earth</span>
@@ -582,10 +361,22 @@ document.addEventListener('DOMContentLoaded', () => {
     <div id="panelContent" class="content"></div>
   </aside>
 </div>
+      
+      </section>
+    </div>
+  </main>
 
-<!-- Script -->
-<script>
-/*
+
+  <footer>
+  <p>Gratitude 🙏</p>
+
+<p><small>Source of Inspiration.</small></p>
+
+  <p><a href="mailto:marynergy@gmail.com">marynergy@gmail.com</a></p>
+  </footer>
+
+    <script>
+      /*
   Robustes Panel-Script:
   - sperrt beim Öffnen den Hintergrund-Scroll (body fixed trick),
   - zeigt data-info sofort oben im Panel,
@@ -711,23 +502,6 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closePanel(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
 });
-</script>
-
-
-      
-      </section>
-    </div>
-  </main>
-
-
-  <footer>
-  <p>Gratitude 🙏</p>
-
-<p><small>Source of Inspiration.</small></p>
-
-  <p><a href="mailto:marynergy@gmail.com">marynergy@gmail.com</a></p>
-
-    <script>
     /* ======================================================================
        Tab-Logik, Lazy-load backgrounds, Helligkeits-Messung, Accessibility
        ====================================================================== */
@@ -918,3 +692,4 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
   </bod>
   </html>
+connection-healing/index.html at main · marynergy-cloud/connection-healing 
