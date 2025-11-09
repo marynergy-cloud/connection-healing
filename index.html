@@ -7,9 +7,6 @@
   <meta name="description" content="Marynergy — Connection, Growth and Healing. Inspiration for Body, Mind and Heart.">
   <meta name="theme-color" content="#007b5e">
   <style>
-    /* --------------------
-       Basis & Barrierefreiheit
-       -------------------- */
     :root {
       --max-width: 700px;
       --radius: 12px;
@@ -21,7 +18,6 @@
       --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
     }
 
-    /* Screenreader helper */
     .visually-hidden {
       position: absolute !important;
       width: 1px;
@@ -46,50 +42,39 @@
       white-space: normal;
     }
 
-    /* Box sizing */
     *, *::before, *::after { box-sizing: border-box; }
 
-    /* Body / Background */
     html, body { height: 100%; margin: 0; }
     body {
       margin: 0;
       min-height: 100vh;
       font-family: "Alegreya", Georgia, "Times New Roman", serif;
-      font-size: 0.9rem
+      font-size: 0.9rem;
       color: var(--text);
       line-height: 1.45;
       color-scheme: light dark;
-      background-image: url('healing-bg.jpg');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
       background-color: var(--background);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-synthesis: none;
     }
-    /* optional: entferne das Body-Hintergrundbild, damit keine Doppelung entsteht */
-    body { background-image: none; background-color: var(--background); }
 
-    /* stabiles, fixed Background-Element (funktioniert auch auf Mobil) */
-      html::before {
+    html::before {
       content: "";
       position: fixed;
-      inset: 0;               /* top:0; right:0; bottom:0; left:0; */
-      z-index: -1;            /* hinter allen Inhalten */
-      pointer-events: none;   /* kein Interaktions-Interferenz */
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
       background-image: url('healing-bg.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
     }
 
-
     @media (max-width: 1024px) {
       body { background-attachment: scroll; }
     }
 
-    /* Header / Footer */
     header, footer {
       text-align: center;
       padding: 1rem;
@@ -100,7 +85,6 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Nav / Tabs */
     nav { text-align: center; margin-top: 0.5rem; }
     nav button {
       margin: 0 0.35rem;
@@ -141,7 +125,7 @@
         transform 0.28s ease,
         background-image 0.6s ease-in-out;
     }
-    .tab-content.active { display: block; opacity: 1; transform: none; pointer-events: auto; will-change: opacity, transform; }
+    .tab-content.active { display: block; opacity: 1; transform: none; pointer-events: auto; }
 
     .tab-inner {
       position: relative;
@@ -159,14 +143,8 @@
     }
     .tab-inner p { max-width: 58ch; margin-left: auto; margin-right: auto; }
 
-    .bg-connect, .bg-education, .bg-art {
-      background-color: #f7fbf9;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
+    .bg-connect, .bg-education { background-color: #f7fbf9; }
 
-    /* Typo */
     .subtle-text { color: #666; margin: 0 0 0.25rem 0; text-align: center; }
     h1 { margin: 0.25rem 0; font-size: 1.4rem; }
     h2 { margin: 0.25rem 0 0.75rem; font-weight: 600; text-align: center; }
@@ -187,7 +165,7 @@
     ul { margin: 0.5rem 0 1rem 1.2rem; padding-left: 1.2rem; }
     .fine-text { display:block; margin-top:1.25rem; font-size:0.92rem; color:#444; text-align:center; }
 
-    a:focus, button:focus, input:focus { outline: 3px solid rgba(0,123,94,0.16); outline-offset: 3px; }
+    a:focus, button:focus { outline: 3px solid rgba(0,123,94,0.16); outline-offset: 3px; }
 
     @media (max-width: 560px) {
       main { margin-top: 0.8rem; padding: 0 0.8rem; }
@@ -201,7 +179,6 @@
       * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
     }
 
-    /* Dark mode */
     @media (prefers-color-scheme: dark) {
       :root { --accent: #2bd19b; --text: #eee; --overlay: rgba(0,0,0,0.6); --background: #071011; }
       body { background-color: var(--background); color: var(--text); }
@@ -209,9 +186,6 @@
       .tab-inner { color: var(--text); background-color: var(--overlay); }
       blockquote { background-color: rgba(10,10,10,0.45); border-left-color: var(--accent); color: #ddd; }
     }
-
-    /* ===== panel & clickable styles (off-canvas) ===== */
-    :root { --link-accent: #1f6feb; --link-accent-weak: rgba(31,111,235,0.14); --link-muted: #374151; }
 
     .clickable {
       color: var(--link-muted);
@@ -240,40 +214,38 @@
     <h1>Marynergy</h1>
     <p>Connect · Grow · Create</p>
     <nav aria-label="Haupttabs" role="tablist">
-      <!-- type="button" wichtig, um versehentliche Form-Submits zu vermeiden -->
       <button type="button" id="tab-btn-connect" role="tab" aria-controls="connect" aria-selected="true">Connection &amp; Healing</button>
       <button type="button" id="tab-btn-education" role="tab" aria-controls="education" aria-selected="false">Education &amp; Growth</button>
-  
     </nav>
   </header>
 
   <main>
     <div class="tabs" id="tabs">
-      <!-- Für Lazy-load: data-bg setzt das Bild, wird per JS gesetzt als background-image -->
-      <!-- Tab 1: Connection & Healing -->
       <section id="connect" class="tab-content bg-connect active" role="tabpanel" aria-labelledby="tab-btn-connect" aria-hidden="false" data-bg="healing-bg.jpg">
         <div class="tab-inner">
           <p class="subtle-text">愛 LOVE</p>
           <h2>Connection and Healing</h2>
-          <blockquote>
+            <blockquote>
             "In the world of 'Nothing,' there is nothing evil, only the good exists. Knowledge and talent encounter limits in the human world, even in martial arts. Therefore, the mind should belong to 'Nothing.' This means: unlimited being." – Miyamoto Musashi, <em>The Book of Five Rings</em>
           </blockquote>
-          <br>
-          <br>
-
+<br>
+<br>
+<br>
+          
 <span class="clickable" data-info="The unity of body, mind, and heart unfolds through mindfulness, spiritual practice, and physical training — connecting to the greater whole, experienced as Dao, Zen, Chi, or Nature." data-img="">🌱 Core Teaching</span>
 <br>
-
+<br>
 <span class="clickable" data-info="All is energy — visible and invisible, material and immaterial — and everything is interconnected.<br><br>Healing arises from the courage to face truth, aligning the whole being and opening a space beyond the ego where consciousness is pure." data-img="">🌱 Energy &amp; Truth</span>
+<br>
 <br>
 
 <span class="clickable" data-info="Practices such as <em>qigong, meditation, yoga, running, calisthenics, mindful eating, fasting, cold exposure, sauna, music, dance, journaling, and reading</em> cultivate connection, clarity, balance, strength, resilience, vitality, and spiritual growth." data-img="">🌱 Holistic Healing &amp; Routines</span>
 
 <br>
-
+<br>
 <span class="clickable" data-info="Fasting enhances the body’s natural regeneration and supports resilience, while conscious breaks from media and constant thoughts restore mental clarity and inner strength." data-img="">🌱 Space for Renewal</span>
 <br>
-
+<br>
 <span class="clickable" data-info="The highest form of being is the unity of action, substance, and heaven & earth. Its purest expression is simply breathing and being in the present—whatever you do, feel, don’t think.<br><br><strong>Action</strong> includes breathing, thinking, doing, and so on, whether active or passive, conscious or unconscious.<br><br><strong>Substance</strong> is what the body and mind take in: air, water, food, thoughts, and information.<br><br><strong>Heaven &amp; Earth</strong> encompass places in the physical world, people, relationships, and the digital world, spanning past, present, and future." data-img="">🌱 Action · Substance · Heaven &amp; Earth</span>
 
 <br>
@@ -286,32 +258,18 @@
     I engage with the digital world consciously — to share, to be inspired —<br>
     yet I value the physical world above all as a human being.
   </em>
-</p>
-        </div>
+   </div>
       </section>
 
-         </div>
-
-<!-- Off-Canvas Panel -->
-<div id="panelOverlay" class="panel-overlay" aria-hidden="true">
-  <aside id="panel" class="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
-    <button id="panelClose" class="close" aria-label="Schließen">&times;</button>
-    <div id="panelHero" class="hero" aria-hidden="true"></div>
-    <h2 id="panelTitle"></h2>
-    <div id="panelContent" class="content" tabindex="0"></div>
-  </aside>
-</div> 
-
- <!-- Tab 2: Education & Growth -->
       <section id="education" class="tab-content bg-education" role="tabpanel" aria-labelledby="tab-btn-education" aria-hidden="true" data-bg="healing-bg.jpg">
         <div class="tab-inner">
           <h2>Education and Growth</h2>
-          <blockquote>
+           <blockquote>
             "You may think you are living in the present, but actually you are living in the past when thought is in operation… Unless this is told, repeated, shown to you, you can talk endlessly about books. This comes first. Then you can read the books." – J. Krishnamurti
           </blockquote>
 
   <div class="section">
-    <h3>🌸 Inspiring Books & Personalities</h3>
+    <h3>🌸 Inspiring Books</h3>
     <p class="fine-text">  <p><strong>Books:</strong><em>
 
     <span class="clickable" data-info="<em>The Book of Five Rings</em>: Miyamoto Musashi was a legendary samurai, strategist, and philosopher who won more than 60 duels without defeat.<br><br>As founder of Niten Ichi-Ryū, he perfected the two-sword technique and a distinctive approach to combat.<br><br>In <em>The Book of Five Rings</em>, Musashi distilled his experience into a philosophy of strategy that extends beyond battle—emphasizing clarity of mind, adaptability, and mastery through discipline.<br><br>Few works have influenced me as deeply." data-img="">The Book of Five Rings</span>,
@@ -427,28 +385,18 @@
 
     </p>
      <a href="https://music.youtube.com/playlist?list=PL9Q7n3WnviCGvxWg0hhNt9_-0yiqF-P9t" target="_blank" rel="noopener noreferrer">🎶 Timeless Tracks</a>
-  
-      
+    </div>
       </section>
     </div>
   </main>
 
-
   <footer>
-  <p>Gratitude 🙏</p>
-
-<p><small>Source of Inspiration.</small></p>
-
-  <p><a href="mailto:marynergy@gmail.com">marynergy@gmail.com</a></p>
+    <p>Gratitude 🙏</p>
+    <p><small>Source of Inspiration.</small></p>
+    <p><a href="mailto:marynergy@gmail.com">marynergy@gmail.com</a></p>
   </footer>
 
-    <script>
-      /*
-  Robustes Panel-Script:
-  - sperrt beim Öffnen den Hintergrund-Scroll (body fixed trick),
-  - zeigt data-info sofort oben im Panel,
-  - stellt beim Schließen Fokus & Scroll sauber wieder her.
-*/
+  <script>
 document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('panelOverlay');
   const panel = document.getElementById('panel');
@@ -456,306 +404,80 @@ document.addEventListener('DOMContentLoaded', () => {
   const titleEl = document.getElementById('panelTitle');
   const contentEl = document.getElementById('panelContent');
   const closeBtn = document.getElementById('panelClose');
-
-  if (!overlay || !panel || !titleEl || !contentEl || !closeBtn) {
-    console.warn('Panel-Elemente fehlen im DOM — Script deaktiviert.');
-    return;
-  }
-
   let savedScrollY = 0;
   let lastClicked = null;
-  let lastFocused = null;
 
-  function lockBackground(scrollY) {
-    // Body position fixed verhindert Scrollen und Browser-jumps
+  function lockBackground(scrollY){
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.documentElement.style.scrollBehavior = 'auto'; // verhindern smooth scroll interference
   }
-
-  function unlockBackground() {
-    const top = document.body.style.top;
-    // entfernen der styles
+  function unlockBackground(){
+    const scrollY = -parseInt(document.body.style.top || '0', 10);
     document.body.style.position = '';
     document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.documentElement.style.scrollBehavior = '';
-
-    // top ist wie "-123px"
-    const scrollY = top ? -parseInt(top, 10) : 0;
-    window.scrollTo(0, scrollY || 0);
+    window.scrollTo(0, scrollY);
   }
 
-  function openPanel(title, infoHTML, imgUrl) {
+  function openPanel(title, infoHTML, imgUrl){
     titleEl.textContent = title || 'Ohne Titel';
-    contentEl.innerHTML = infoHTML || 'Noch kein Text hinterlegt.';
-
-    if (imgUrl) {
-      hero.style.backgroundImage = `url("${imgUrl}")`;
-      hero.style.display = 'block';
-    } else {
-      hero.style.backgroundImage = '';
-      hero.style.display = 'none';
-    }
-
-    overlay.classList.add('open');
-    panel.classList.add('open');
-    overlay.setAttribute('aria-hidden', 'false');
-
-    // Panel-Inhalt oben positionieren
-    panel.scrollTop = 0;
-    contentEl.scrollTop = 0;
-
-    // Sperre Hintergrund-Scroll (verhindert Sprünge)
+    contentEl.innerHTML = infoHTML || '';
+    if(imgUrl){ hero.style.backgroundImage = `url("${imgUrl}")`; hero.style.display = 'block'; } 
+    else { hero.style.backgroundImage = ''; hero.style.display = 'none'; }
+    overlay.classList.add('open'); panel.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+    panel.scrollTop = contentEl.scrollTop = 0;
     lockBackground(savedScrollY);
-
-    try { closeBtn.focus({ preventScroll: true }); } catch (err) { closeBtn.focus(); }
+    closeBtn.focus({preventScroll:true});
   }
 
-  function closePanel() {
-    overlay.classList.remove('open');
-    panel.classList.remove('open');
-    overlay.setAttribute('aria-hidden', 'true');
-
-    // Nach Transition Hintergrund entsperren und Fokus/Scroll wiederherstellen
-    setTimeout(() => {
-      unlockBackground();
-
-      const target = lastClicked || lastFocused;
-      if (target) {
-        try { target.focus({ preventScroll: true }); } catch (err) { target.focus(); }
-      }
-
-      // cleanup
-      lastClicked = null;
-      lastFocused = null;
-      savedScrollY = 0;
-    }, 240); // etwas länger als CSS transition 0.22s
+  function closePanel(){
+    overlay.classList.remove('open'); panel.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
+    setTimeout(() => { unlockBackground(); lastClicked?.focus(); savedScrollY=0; }, 240);
   }
 
-  // klickbare Elemente: Rolle/Tabindex setzen und Handler
-  document.querySelectorAll('.clickable').forEach(el => {
-    if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
-    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+  document.querySelectorAll('.clickable').forEach(el=>{
+    if(!el.hasAttribute('role')) el.setAttribute('role','button');
+    if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','0');
+    el.addEventListener('click', (e)=>{ e.preventDefault(); savedScrollY=window.scrollY; lastClicked=el; openPanel(el.textContent.trim(), el.getAttribute('data-info'), el.getAttribute('data-img')); });
+    el.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.code==='Space'){ e.preventDefault(); el.click(); } });
+  });
+  closeBtn.addEventListener('click', closePanel);
+  overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closePanel(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closePanel(); });
 
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      // speichern (wichtig VOR lockBackground)
-      savedScrollY = window.scrollY || window.pageYOffset;
-      lastClicked = el;
-      lastFocused = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
-
-      const title = el.textContent.trim();
-      const info = el.getAttribute('data-info') || '';
-      const img = el.getAttribute('data-img') || '';
-
-      openPanel(title, info, img);
-    });
-
-    el.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.code === 'Space') {
-        e.preventDefault();
-        el.click();
-      }
+  // Tabs
+  const nav = document.querySelector('nav[role="tablist"]');
+  const tabs = Array.from(nav.querySelectorAll('[role="tab"]'));
+  const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+  function activateTab(tab){
+    const targetId = tab.getAttribute('aria-controls');
+    tabs.forEach(t=>{ t.classList.remove('active'); t.setAttribute('aria-selected','false'); t.setAttribute('tabindex','-1'); });
+    panels.forEach(p=>{ p.classList.remove('active'); p.setAttribute('aria-hidden','true'); });
+    tab.classList.add('active'); tab.setAttribute('aria-selected','true'); tab.removeAttribute('tabindex');
+    document.getElementById(targetId)?.classList.add('active');
+  }
+  tabs.forEach(tab=>{
+    tab.setAttribute('tabindex', tab.getAttribute('aria-selected')==='true'?'0':'-1');
+    tab.addEventListener('click', ()=>activateTab(tab));
+    tab.addEventListener('keydown', (e)=>{
+      let idx = tabs.indexOf(tab);
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); activateTab(tabs[(idx+1)%tabs.length]); tabs[(idx+1)%tabs.length].focus(); }
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); activateTab(tabs[(idx-1+tabs.length)%tabs.length]); tabs[(idx-1+tabs.length)%tabs.length].focus(); }
+      if(e.key==='Home'){ e.preventDefault(); activateTab(tabs[0]); tabs[0].focus(); }
+      if(e.key==='End'){ e.preventDefault(); activateTab(tabs[tabs.length-1]); tabs[tabs.length-1].focus(); }
     });
   });
-
-  // Schließen-Mechanik
-  closeBtn.addEventListener('click', closePanel);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePanel(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
+  activateTab(tabs.find(t=>t.getAttribute('aria-selected')==='true')||tabs[0]);
 });
-    /* ======================================================================
-       Tab-Logik, Lazy-load backgrounds, Helligkeits-Messung, Accessibility
-       ====================================================================== */
-    (function(){
-      const nav = document.querySelector('nav[role="tablist"]');
-      const tabs = Array.from(nav.querySelectorAll('[role="tab"]'));
-      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
-      const status = document.getElementById('newsletter-status');
-
-      /* Utility: set CSS variables on element */
-      function setTabVisuals(el, overlayRGBA, textColor){
-        el.style.setProperty('--overlay-local', overlayRGBA);
-        el.style.setProperty('--text-local', textColor);
-      }
-
-      /* Activate tab */
-      function activateTab(tab){
-        const targetId = tab.getAttribute('aria-controls');
-        tabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected','false');
-          t.setAttribute('tabindex','-1');
-        });
-        panels.forEach(p => {
-          p.classList.remove('active');
-          p.setAttribute('aria-hidden','true');
-        });
-
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected','true');
-        tab.removeAttribute('tabindex');
-        const panel = document.getElementById(targetId);
-        if(panel){
-          panel.classList.add('active');
-          panel.setAttribute('aria-hidden','false');
-          // ensure background loads if not yet
-          loadBackgroundFor(panel);
-        }
-
-        // Scroll to main top on mobile for better UX
-        const mainRect = document.querySelector('main').getBoundingClientRect();
-        if(window.innerWidth <= 700){
-          window.scrollTo({ top: window.scrollY + mainRect.top - 8, behavior: 'smooth' });
-        }
-      }
-
-      /* initial tabindex handling */
-      tabs.forEach((tab, i) => {
-        tab.setAttribute('tabindex', tab.getAttribute('aria-selected') === 'true' ? '0' : '-1');
-
-        tab.addEventListener('click', () => activateTab(tab));
-
-        tab.addEventListener('keydown', (e) => {
-          let idx = tabs.indexOf(tab);
-          if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){
-            e.preventDefault();
-            idx = (idx + 1) % tabs.length;
-            tabs[idx].focus();
-            activateTab(tabs[idx]);
-          } else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
-            e.preventDefault();
-            idx = (idx - 1 + tabs.length) % tabs.length;
-            tabs[idx].focus();
-            activateTab(tabs[idx]);
-          } else if(e.key === 'Home'){
-            e.preventDefault();
-            tabs[0].focus();
-            activateTab(tabs[0]);
-          } else if(e.key === 'End'){
-            e.preventDefault();
-            tabs[tabs.length - 1].focus();
-            activateTab(tabs[tabs.length - 1]);
-          }
-        });
-      });
-
-      const initialTab = tabs.find(t => t.getAttribute('aria-selected') === 'true') || tabs[0];
-      if(initialTab) activateTab(initialTab);
-
-      const loaded = new WeakSet();
-
-      // IntersectionObserver to lazy-load backgrounds when panels approach viewport
-      const io = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            const panel = entry.target;
-            loadBackgroundFor(panel);
-            observer.unobserve(panel);
-          }
-        });
-      }, { rootMargin: '300px' });
-
-      panels.forEach(p => io.observe(p));
-
-      // load image, set as background-image, compute brightness -> choose overlay/text
-      function loadBackgroundFor(panel){
-        if(loaded.has(panel)) return;
-        const src = panel.dataset.bg;
-        if(!src) { loaded.add(panel); return; }
-
-        const img = new Image();
-        img.crossOrigin = "anonymous"; // try to avoid tainting canvas; depends on hosting
-        img.src = src;
-
-        img.onload = () => {
-          // set as background
-          panel.style.backgroundImage = `url("${src}")`;
-
-          // compute average brightness using canvas (downscaled)
-          try {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            const W = 100, H = 60;
-            canvas.width = W;
-            canvas.height = H;
-            // draw image scaled to canvas
-            ctx.drawImage(img, 0, 0, W, H);
-            const data = ctx.getImageData(0,0,W,H).data;
-            let r=0,g=0,b=0,count=0;
-            for(let i=0;i<data.length;i+=4){
-              r += data[i];
-              g += data[i+1];
-              b += data[i+2];
-              count++;
-            }
-            r = r/count; g = g/count; b = b/count;
-            // luminance (perceptual)
-            const luminance = 0.2126*r + 0.7152*g + 0.0722*b; // 0..255
-            // threshold: > 140 considered light -> use dark overlay + white text
-            if(luminance > 140){
-              // image is light -> put dark overlay, white text
-              setTabVisuals(panel, 'rgba(0,0,0,0.45)', '#fff');
-            } else {
-              // image is dark -> keep light overlay, dark text
-              setTabVisuals(panel, 'rgba(255,255,255,0.92)', '#111');
-            }
-          } catch (err) {
-            // If canvas is tainted or fails, fallback to default variables
-            console.warn('Brightness check failed:', err);
-            // leave defaults
-          }
-
-          loaded.add(panel);
-        };
-
-        img.onerror = () => {
-          // loading failed, still mark as loaded to avoid retries
-          console.warn('Background image failed to load:', src);
-          loaded.add(panel);
-        };
-
-        // In case image is cached and already loaded (browsers often do), ensure onload triggers:
-        if(img.complete) img.onload();
-      }
-
-      // Ensure active panel loads immediately
-      panels.forEach(p => {
-        if(p.classList.contains('active')) loadBackgroundFor(p);
-      });
-
-      const form = document.getElementById('newsletter-form');
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        status.textContent = ''; // clear
-
-        const email = form.email.value && form.email.value.trim();
-        const honeypot = form.website.value && form.website.value.trim();
-        if(honeypot){
-          status.textContent = 'Spam erkannt.';
-          status.style.color = 'crimson';
-          return;
-        }
-        if(!email || !/^\S+@\S+\.\S+$/.test(email)){
-          status.textContent = 'Bitte gib eine gültige E-Mail-Adresse an.';
-          status.style.color = 'crimson';
-          form.email.focus();
-          return;
-        }
-
-        // Client-side feedback (for real usage: send to server via fetch)
-        status.textContent = 'Danke — wir haben deine E-Mail erhalten.';
-        status.style.color = '';
-        form.reset();
-
-      });
-
-    })();
   </script>
-  </body>
-  </html>
+
+  <!-- Off-Canvas Panel -->
+  <div id="panelOverlay" class="panel-overlay" aria-hidden="true">
+    <aside id="panel" class="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+      <button id="panelClose" class="close" aria-label="Schließen">&times;</button>
+      <div id="panelHero" class="hero" aria-hidden="true"></div>
+      <h2 id="panelTitle"></h2>
+      <div id="panelContent" class="content" tabindex="0"></div>
+    </aside>
+  </div>
+</body>
+</html>
