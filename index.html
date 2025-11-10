@@ -23,6 +23,56 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
+    /* --- Ergänzungen / Anpassungen für Alegreya, zentrierte Überschriften und Panel-Italics --- */
+
+/* 1) Stelle sicher, dass überall Alegreya verwendet wird */
+html, body, header, footer, main, nav, .tab-content, .tab-inner, .panel, .panel * {
+  font-family: 'Alegreya', Georgia, "Times New Roman", serif !important;
+}
+
+/* 2) Einheitliche Basis-Größe (bei Bedarf anpassen). Damit erben alle Elemente dieselbe Größe. */
+html, body {
+  font-size: 1rem; /* Basisgröße: 1rem = normale Textgröße */
+}
+
+/* 3) Überschriften zentrieren (nicht linksbündig) — Überschriften bleiben erkennbar anders (Größe/Gewicht) */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: 'Alegreya', serif;
+  font-weight: 700; /* Überschriften etwas schwerer */
+  line-height: 1.2;
+  /* optional: leicht größere Schrift für Überschriften — passe an oder entferne, wenn du gleiche Größe willst */
+  font-size: 1.125rem;
+}
+
+/* 4) Sicherstellen, dass kursive Schrift im Panel dieselbe Größe hat wie normaler Text */
+.panel, .panel * {
+  font-size: inherit;   /* alle Elemente im Panel erben die Basisgröße */
+  font-family: inherit;
+}
+.panel i, .panel em {
+  font-style: italic;
+  font-size: inherit;   /* explizit: gleiche Größe wie normaler Text */
+  font-weight: inherit;
+}
+
+/* 5) Generell: i / em überall nicht verkleinern (falls irgendwo spezifische Regeln vorhanden sind) */
+i, em {
+  font-size: inherit !important;
+  font-style: italic;
+}
+
+/* 6) Optional: Falls bestimmte Komponenten (z. B. blockquote) vorher andere Größen hatten, normalisieren */
+blockquote, p, li, a, button, nav button {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* Hinweis: Falls du möchtest, dass Überschriften NICHT in Schriftart, sondern nur in Ausrichtung abweichen,
+   entferne font-family/font-weight/font-size in der Überschriftenregel und lasse nur text-align:center; */
+
     /* Fonts */
     @font-face {
       font-family: 'Alegreya';
@@ -306,9 +356,9 @@
 <span class="clickable" data-info="Fasting and intentional pauses enhance the body’s natural regenerative capacity, while conscious breaks from media, constant thinking, and overstimulation restore mental clarity, emotional equilibrium, and inner strength. These deliberate moments of renewal create the space needed for reflection, learning, and the continual realignment of body, mind, and heart — a reminder that holistic healing is lifelong and always unfolding." data-img="">🌱 Space for Renewal</span>
 <br>
 <br>
-<span class="clickable" data-info="The highest form of being is the unity of Action, Substance, and Heaven &amp; Earth. Its purest expression is simple breathing and immediate experiencing in the present moment—whatever you do or feel.<br><br><strong>Action</strong> includes breathing, thinking, doing, and so on, whether active or passive, conscious or unconscious.<br><br><strong>Substance</strong> is what the body and mind take in: air, water, food, thoughts, and information.<br><br><strong>Heaven &amp; Earth</strong> includes places in the physical world, people, relationships, and the digital world, connecting the past, present, and future.<br><br><p class="fine-text"><em>
+<span class="clickable" data-info="The highest form of being is the unity of Action, Substance, and Heaven &amp; Earth. Its purest expression is simple breathing and immediate experiencing in the present moment—whatever you do or feel.<br><br><strong>Action</strong> includes breathing, thinking, doing, and so on, whether active or passive, conscious or unconscious.<br><br><strong>Substance</strong> is what the body and mind take in: air, water, food, thoughts, and information.<br><br><strong>Heaven &amp; Earth</strong> includes places in the physical world, people, relationships, and the digital world, connecting the past, present, and future.<br><br><em>
     The analog world is my <strong>Heaven &amp; Earth</strong> — the foundation of my philosophy.<br>
-    I engage with the digital world consciously — to share and to be inspired.</em> " data-img="">🌱 Action · Substance · Heaven &amp; Earth</span>
+    I engage with the digital world consciously — to share and to be inspired.</em>" data-img="">🌱 Action · Substance · Heaven &amp; Earth</span>
 <br>
 <br>
 <br>
@@ -432,11 +482,10 @@
 
     <span class="clickable" data-info="Jim Rohn, one of my greatest mentors and pivotal for my personal growth, stands for self-discipline, the power of habits, and goal-oriented action.<br><br>He showed that success and fulfillment arise from continuous learning, personal responsibility, and consistent effort.<br><br>His guidance continues to shape my mindset, inspiring perseverance, intentional living, and the pursuit of meaningful personal and professional growth." data-img=""> Jim Rohn</span>,
 
-  <span class="clickable" data-info='Bruce Lee shows that true mastery arises not just from instinct or control, but from the harmony of both.<br><br>For him, martial arts meant expressing oneself honestly, without self-deception, and executing every movement with full determination.<br><br>His philosophy inspires because it is more than martial arts: it is a way of life, combining discipline, creativity, and authenticity.<br><br><em>“Empty your mind, be formless, shapeless, like water. Now, you put water into a cup, it becomes the cup. You put water into a bottle, it becomes the bottle. You put it in a teapot, it becomes the teapot. Now water can flow, or it can crash... Be water, my friend...”<br>– Bruce Lee</em>" data-img="">Bruce Lee</span>,
+ 
+    <span class="clickable" data-info="Bruce Lee shows that true mastery arises not just from instinct or control, but from the harmony of both.<br><br>For him, martial arts meant expressing oneself honestly, without self-deception, and executing every movement with full determination.<br><br>His philosophy inspires because it is more than martial arts: it is a way of life, combining discipline, creativity, and authenticity.<br><br><em>“Empty your mind, be formless, shapeless, like water. Now, you put water into a cup, it becomes the cup. You put water into a bottle, it becomes the bottle. You put it in a teapot, it becomes the teapot. Now water can flow, or it can crash... Be water, my friend.”</em>" data-img="">Bruce Lee</span>,
 
-  <span class="clickable" data-info='Thich Nhat Hanh teaches mindfulness, compassion, and living consciously in the present moment.<br><br>He emphasizes that true happiness and inner peace can only arise when we meet ourselves and others with kindness and act with full awareness.<br><br>His teachings inspire integrating daily life with spirituality, experiencing small actions consciously, and fostering harmony within ourselves and the world.<br><br><em>“When you breathe in, you know that you are breathing in.”<br>– Thich Nhat Hanh</em>' data-img="">Thich Nhat Hanh</span>
-
-</em></p>
+    <span class="clickable" data-info="Thich Nhat Hanh teaches mindfulness, compassion, and living consciously in the present moment. He emphasizes that true happiness and inner peace can only arise when we meet ourselves and others with kindness and act with full awareness.<br><br>His teachings inspire integrating daily life with spirituality, experiencing small actions consciously, and fostering harmony within ourselves and the world.<br><br><em>“When you breathe in, you know that you are breathing in.”</em>" data-img="">Thich Nhat Hanh</span>
     <br>
     <br>
     <br>
