@@ -17,6 +17,30 @@
       --background: #ffffff;
       --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
     }
+    /* Standardzustand: keine Unterstreichung */
+.clickable {
+  color: #007b5e; /* dunkles Grün als Standardfarbe */
+  cursor: pointer;
+  text-decoration: none; /* Unterstreichung entfernen */
+  transition: color 0.2s ease, box-shadow 0.2s ease;
+  border-bottom: none; /* Unterstreichung verhindern */
+}
+
+/* Hover-Zustand: blau oder grün aufleuchten */
+.clickable:hover,
+.clickable:active {
+  color: #1e90ff; /* Blau beim Hover */
+  text-decoration: none; /* Unterstreichung verhindern */
+}
+
+/* Fokus-Zustand für Tastatur-Navigation */
+.clickable:focus-visible {
+  color: #2bd19b; /* leuchtendes Grün beim Fokus */
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(43, 209, 155, 0.4); /* sanftes grünes Leuchten */
+  border-radius: 3px;
+}
+
 
     .visually-hidden {
       position: absolute !important;
