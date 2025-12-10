@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marynergy unites Connection, Healing, and Growth. Break free from dogmas, discover your true nature, and find the unity of body, mind, and heart through lived practice.">
+    <title>Marynergy 愛 | The Manifesto</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN VARIABLES --- */
+        :root {
+            /* Colors */
+            --bg-color: #ffffff;
+            --bg-secondary: #f9f9f9;
+            --text-main: #1a1a1a;        
+            --text-muted: #666666;
+            --accent-color: #2d5a27;      
+            --accent-hover: #1e3d1a;      
+            
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Layout */
+            --container-width: 1000px;
+            --radius: 4px;
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased; 
+            /* Prevents horizontal scrolling on mobile */
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { 
+            font-family: var(--font-display); 
+            color: var(--text-main); 
+            line-height: 1.2;
+        }
+
+        /* Responsive Images */
+        img { max-width: 100%; height: auto; }
+
+        a { text-decoration: none; transition: all 0.3s ease; }
+
+        .container { 
+            max-width: var(--container-width); 
+            margin: 0 auto; 
+            padding: 0 24px; 
+            width: 100%; /* Ensure container is responsive */
+        }
+
+        /* --- HEADER (Glassmorphism) --- */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85); /* Slightly more opaque for mobile */
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo { 
+            font-family: var(--font-display);
+            font-size: 1.4rem; 
+            letter-spacing: 1px; 
+            font-weight: 600; 
+            text-align: center;
+            color: var(--text-main);
+        }
+        
+        .kanji { color: var(--accent-color); font-weight: 400; margin-left: 5px; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 220px 0 140px;
+            text-align: center;
+            background-image: 
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)), 
+                url('minimalist-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+        }
+
+        .hero-content {
+            animation: fadeUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero h1 { 
+            font-size: 4rem; 
+            margin-bottom: 24px; 
+            letter-spacing: -1px;
+        }
+
+        .hero p { 
+            font-size: 1.25rem; 
+            color: var(--text-muted); 
+            margin-bottom: 48px; 
+            max-width: 650px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            font-weight: 300;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background-color: var(--accent-color);
+            color: #fff;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(45, 90, 39, 0.2);
+            cursor: pointer;
+            /* Improve touch target size for mobile */
+            min-height: 48px;
+            line-height: 1.2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn:hover { 
+            background-color: var(--accent-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 90, 39, 0.3);
+        }
+
+        /* --- PILLARS --- */
+        .pillars { padding: 100px 0; background-color: var(--bg-color); }
+        
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 60px; 
+            text-align: center; 
+        }
+        
+        .pillar-card {
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pillar-card h3 { 
+            font-size: 1.6rem; 
+            margin-bottom: 20px; 
+            position: relative;
+            display: inline-block;
+        }
+
+        .pillar-card h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+        }
+
+        .pillar-card p { 
+            color: var(--text-muted); 
+            font-size: 1rem; 
+        }
+
+        /* --- QUOTE --- */
+        .quote-section { 
+            padding: 120px 0; 
+            text-align: center; 
+            background-color: var(--bg-secondary);
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        blockquote { 
+            font-family: var(--font-display); 
+            font-size: 2.2rem; 
+            font-style: italic; 
+            max-width: 800px; 
+            margin: 0 auto 30px; 
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+        
+        cite { 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: var(--accent-color); 
+            font-weight: 600; 
+            font-style: normal;
+        }
+
+        /* --- PRAXIS --- */
+        .praxis { padding: 100px 0; }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 16px; }
+        .section-header p { color: var(--text-muted); }
+
+        .routine-list { 
+            list-style: none; 
+            max-width: 650px; 
+            margin: 0 auto; 
+            border: 1px solid #eee;
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        
+        .routine-list li { 
+            padding: 20px 10px; 
+            border-bottom: 1px solid #f0f0f0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .routine-list li:last-child { border-bottom: none; }
+        
+        .routine-list li span:first-child {
+            text-align: left;
+            padding-right: 15px; /* Spacing to check-icon on mobile */
+        }
+
+        .routine-list strong { color: var(--accent-color); font-weight: 600; margin-right: 5px;}
+        
+        .check-icon { 
+            color: var(--accent-color); 
+            font-size: 0.8rem; 
+            border: 1px solid var(--accent-color);
+            /* Flex-shrink prevents icon squashing */
+            flex-shrink: 0; 
+            width: 24px; 
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- FOOTER --- */
+        .cta-footer { 
+            background-color: #0f110f; 
+            color: #fff; 
+            padding: 120px 0 60px; 
+            text-align: center; 
+        }
+        
+        .cta-footer h2 { 
+            font-size: 3rem; 
+            margin-bottom: 24px; 
+            color: #fff;
+        }
+        
+        .cta-footer p { 
+            margin-bottom: 50px; 
+            color: #888; 
+            font-size: 1.1rem;
+        }
+        
+        .btn-light { 
+            background-color: transparent; 
+            color: #fff; 
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-light:hover { 
+            background-color: #fff; 
+            color: #000; 
+            border-color: #fff;
+        }
+
+        .footer-email {
+            display: block;
+            margin-top: 60px; 
+            margin-bottom: 10px; 
+            color: #666; 
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            word-wrap: break-word; /* Prevents overflow of long emails */
+        }
+
+        .footer-email:hover {
+            color: #fff; 
+            text-decoration: underline;
+        }
+        
+        .footer-note { 
+            font-size: 0.75rem; 
+            color: #444; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.6;
+        }
+
+        /* --- ANIMATION --- */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 768px) {
+            /* Reduce container padding */
+            .container { padding: 0 20px; }
+
+            /* Hero Adjustments */
+            .hero { 
+                padding: 140px 0 80px; /* Less padding top/bottom */
+                background-attachment: scroll; /* IMPORTANT: Disable fixed background on mobile (Performance/Bugs) */
+                background-position: center top;
+            }
+            .hero h1 { font-size: 2.5rem; line-height: 1.1; }
+            .hero p { font-size: 1.1rem; margin-bottom: 35px; }
+
+            /* Mobile-friendly buttons */
+            .btn { width: 100%; max-width: 300px; }
+
+            /* Grid Adjustment */
+            .grid { gap: 40px; }
+            
+            /* Smaller Quotes */
+            .quote-section { padding: 80px 0; }
+            blockquote { font-size: 1.5rem; }
+
+            /* Praxis Section */
+            .praxis { padding: 60px 0; }
+            .section-header h2 { font-size: 2rem; }
+            .routine-list { padding: 10px; }
+            
+            /* Footer */
+            .cta-footer { padding: 80px 0 40px; }
+            .cta-footer h2 { font-size: 2.2rem; }
+            .cta-footer p { font-size: 1rem; }
+            .footer-email { margin-top: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Marynergy<span class="kanji">愛</span></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Connection. Healing.<br>Growth.</h1>
+            <p>It is not about theory. It is about lived practice.<br>Break free from dogmas and discover your true nature.</p>
+            
+            <a href="manifest.pdf" target="_blank" class="btn">Read Manifesto</a>
+        </div>
+    </section>
+
+    <section class="pillars">
+        <div class="container">
+            <div class="grid">
+                <div class="pillar-card">
+                    <h3>Connection</h3>
+                    <p>The deepest connection is our nature: We overcome the illusion of separation and return to the unity of body, mind, and heart.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>Healing</h3>
+                    <p>Healing is the courage for truth: Through silence and cleansing, we detach from the noise of the ego and create the space where the universal primal force flows freely again.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>Growth</h3>
+                    <p>True education is unfolding: We transform knowledge through character and action into lived wisdom and shape our lives sovereignly in harmony with natural cycles.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>Practice</h3>
+                    <p>Philosophy without action is worthless: True mastery only arises when we transform knowledge into lived freedom through full self-responsibility and consistent routines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="container">
+            <blockquote>
+                “Wherever you are,<br>be there totally.”
+            </blockquote>
+            <cite>— From the Manifesto</cite>
+        </div>
+    </section>
+
+    <section class="praxis">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Way of Practice</h2>
+                <p>An excerpt from the 30 routines</p>
+            </div>
+            
+            <ul class="routine-list">
+                <li>
+                    <span><strong>The Anchor:</strong> Conscious breathing in daily life</span>
+                    <span class="check-icon" aria-hidden="true">✓</span>
+                </li>
+                <li>
+                    <span><strong>The Grounding:</strong> Deep Squat & Barefoot walking</span>
+                    <span class="check-icon" aria-hidden="true">✓</span>
+                </li>
+                <li>
+                    <span><strong>The Cleansing:</strong> Intermittent fasting & Nature</span>
+                    <span class="check-icon" aria-hidden="true">✓</span>
+                </li>
+                <li>
+                    <span><strong>The Focus:</strong> Offline times & Silence</span>
+                    <span class="check-icon" aria-hidden="true">✓</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer id="download" class="cta-footer">
+        <div class="container">
+            <h2>Ready for more depth?</h2>
+            <p>5000 words. 30 routines. One path.</p>
+            
+            <a href="manifest.pdf" download class="btn btn-light">
+                Download Manifesto
+            </a>
+
+            <a href="mailto:marynergy@gmail.com" class="footer-email">marynergy@gmail.com</a>
+            
+            <div class="footer-note">
+                Feeling > Thinking. Acting > Speaking.<br>
+                &copy; 2025 Marynergy
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
